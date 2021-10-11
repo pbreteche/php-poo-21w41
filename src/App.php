@@ -12,9 +12,7 @@ class App
     public function handleRequest(Request $request): Response
     {
         $methodName = $this->urlParser->matchUrl($request->getUri());
-        $response = new Response();
-        $response->setBody($methodName);
 
-        return $response;
+        return call_user_func([new Controller(), $methodName]);
     }
 }
