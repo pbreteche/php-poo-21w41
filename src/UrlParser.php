@@ -6,4 +6,13 @@ class UrlParser
     {
         return array_pop(explode('/', $url));
     }
+
+    public function matchUrl(string $url): string
+    {
+        if ('/' === $url) {
+            return 'homepage';
+        }
+
+        return 'error404';
+    }
 }

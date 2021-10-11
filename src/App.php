@@ -11,13 +11,9 @@ class App
 
     public function handleRequest(Request $request): Response
     {
+        $methodName = $this->urlParser->matchUrl($request->getUri());
         $response = new Response();
-        $response->setBody(
-            '<h1>Bonjour !</h1>'.
-            '<p>L\'URL demandée est '.
-                $this->urlParser->getLastSegment($request->getUri()).
-            '</p>'
-        );
+        $response->setBody($methodName);
 
         return $response;
     }
