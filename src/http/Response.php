@@ -1,5 +1,7 @@
 <?php
 
+namespace Dawan\http;
+
 class Response
 {
     private int $status = 200;

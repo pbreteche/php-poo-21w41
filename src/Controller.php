@@ -1,11 +1,17 @@
 <?php
 
+namespace Dawan;
+
+use Dawan\http\Response;
+
 class Controller
 {
     private TemplateRenderer $renderer;
 
     public function __construct()
     {
+        // Ici, pas besoin de faire un use
+        // TemplateRenderer est dans le même espace que Controller
         $this->renderer = new TemplateRenderer();
     }
 

@@ -1,5 +1,7 @@
 <?php
 
+namespace Dawan\http;
+
 class Request
 {
     // Variable interne à mon objet

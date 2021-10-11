@@ -1,5 +1,10 @@
 <?php
 
+namespace Dawan;
+
+use Dawan\http\Request;
+use Dawan\http\Response;
+
 class App
 {
     private UrlParser $urlParser;

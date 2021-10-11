@@ -1,5 +1,7 @@
 <?php
 
+namespace Dawan;
+
 class TemplateRenderer
 {
     private const INCLUDE_DIR = __DIR__.'/../templates/';

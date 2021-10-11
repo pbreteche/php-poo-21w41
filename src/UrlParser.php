@@ -1,5 +1,7 @@
 <?php
 
+namespace Dawan;
+
 class UrlParser
 {
     public function getLastSegment(string $url): string

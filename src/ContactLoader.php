@@ -1,5 +1,7 @@
 <?php
 
+namespace Dawan;
+
 class ContactLoader
 {
     public function load()
