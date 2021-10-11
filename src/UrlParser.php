@@ -2,7 +2,7 @@
 
 class UrlParser
 {
-    public function getLastSegment($url)
+    public function getLastSegment(string $url): string
     {
         return array_pop(explode('/', $url));
     }

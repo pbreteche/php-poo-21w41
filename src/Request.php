@@ -5,7 +5,7 @@ class Request
     // Variable interne à mon objet
     // Propriété de l'objet accessible par l'ensemble
     // des fonctions de l'objet courant
-    private $uri;
+    private string $uri;
 
     // Méthode magique "constructeur"
     // est appelée automatiquement lors de l'instanciation
@@ -14,7 +14,7 @@ class Request
         $this->uri = $_SERVER['REQUEST_URI'];
     }
 
-    public function getUri()
+    public function getUri(): string
     {
         return $this->uri;
     }
