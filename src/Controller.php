@@ -18,7 +18,8 @@ class Controller
     public function error404()
     {
         $response = new Response();
-        $response->setBody('Page non trouvée');
+        $display = new ErrorDisplay();
+        $response->setBody($display->toHtml($contacts));
 
         return $response;
     }
