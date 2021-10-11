@@ -2,6 +2,13 @@
 
 class Controller
 {
+    private TemplateRenderer $renderer;
+
+    public function __construct()
+    {
+        $this->renderer = new TemplateRenderer();
+    }
+
     public function homepage()
     {
         $loader = new ContactLoader();
@@ -9,8 +16,9 @@ class Controller
         $contacts = $loader->load();
 
         $response = new Response();
-        $display = new ContactDisplay();
-        $response->setBody($display->indexToHtml($contacts));
+        $response->setBody($this->renderer->render('index.phtml', [
+            'contacts' => $contacts,
+        ]));
 
         return $response;
     }
@@ -18,8 +26,7 @@ class Controller
     public function error404()
     {
         $response = new Response();
-        $display = new ErrorDisplay();
-        $response->setBody($display->toHtml($contacts));
+        $response->setBody($this->renderer->render('error.phtml'));
         $response->setStatus(404);
 
         return $response;
