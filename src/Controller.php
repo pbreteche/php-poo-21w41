@@ -20,6 +20,7 @@ class Controller
         $response = new Response();
         $display = new ErrorDisplay();
         $response->setBody($display->toHtml($contacts));
+        $response->setStatus(404);
 
         return $response;
     }
