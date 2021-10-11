@@ -1,9 +1,5 @@
 <?php
 
-require_once __DIR__.'/Request.php';
-require_once __DIR__.'/Response.php';
-require_once __DIR__.'/UrlParser.php';
-
 class App
 {
     private UrlParser $urlParser;
