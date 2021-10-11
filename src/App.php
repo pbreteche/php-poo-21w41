@@ -9,7 +9,9 @@ class App
         $response = new Response();
         $response->setBody(
             '<h1>Bonjour !</h1>'.
-            '<p>L\'URL demandée est '.$request->getUri().'</p>'
+            '<p>L\'URL demandée est '.array_pop(
+                explode('/', $request->getUri())
+            ).'</p>'
         );
 
         return $response;
