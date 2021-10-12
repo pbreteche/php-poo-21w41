@@ -9,5 +9,12 @@ class ContactLoader
         return json_decode(file_get_contents(__DIR__.'/../data/contacts.json'));
     }
 
-    // créer une méthode pour charger un contact par son "id"
+    public function loadById(int $id)
+    {
+        $data = json_decode(file_get_contents(__DIR__.'/../data/contacts.json'));
+
+        $dataById = array_column($data, null, 'id');
+
+        return $dataById[$id] ?? null;
+    }
 }

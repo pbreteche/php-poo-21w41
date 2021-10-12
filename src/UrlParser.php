@@ -15,8 +15,9 @@ class UrlParser
             return 'homepage';
         }
 
-        // détecter les urls de type /1, /2, /3, etc
-        // et retourner 'detail'
+        if (preg_match('/^\/(\d+)$/', $url, $matches)) {
+            return 'detail';
+        }
 
         return 'error404';
     }

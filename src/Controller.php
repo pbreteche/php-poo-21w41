@@ -30,9 +30,19 @@ class Controller
         return $response;
     }
 
-    // créer une méthode 'detail' qui produit la page d'un contact
-    // dans un premier, ne faire que pour id = 1
-    // créer également le fichier de template detail.phtml
+    public function detail(): ResponseInterface
+    {
+        $loader = new ContactLoader();
+
+        $contact = $loader->loadById(1);
+
+        $response = new Response();
+        $response->setBody($this->renderer->render('detail.phtml', [
+            'contact' => $contact,
+        ]));
+
+        return $response;
+    }
 
     public function error404(): ResponseInterface
     {
