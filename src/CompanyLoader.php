@@ -6,7 +6,7 @@ class CompanyLoader extends AbstractLoader
 {
     private $allCompanies;
 
-    private function getAll()
+    protected function getAll()
     {
         if (!$this->allCompanies) {
             $this->allCompanies = json_decode(

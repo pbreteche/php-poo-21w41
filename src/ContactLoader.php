@@ -6,7 +6,7 @@ class ContactLoader extends AbstractLoader
 {
     private $allContacts;
 
-    private function getAllContacts()
+    protected function getAll()
     {
         if (!$this->allContacts) {
             $this->allContacts = json_decode(file_get_contents(__DIR__.'/../data/contacts.json'));            

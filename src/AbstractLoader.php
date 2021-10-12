@@ -1,5 +1,7 @@
 <?php
 
+namespace Dawan;
+
 abstract class AbstractLoader
 {
     public function load()
