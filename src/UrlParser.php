@@ -9,16 +9,18 @@ class UrlParser
         return array_pop(explode('/', $url));
     }
 
-    public function matchUrl(string $url): string
+    public function matchUrl(string $url): Route
     {
         if ('/' === $url) {
-            return 'homepage';
+            return new Route($url, 'homepage');
         }
 
         if (preg_match('/^\/(\d+)$/', $url, $matches)) {
-            return 'detail';
+            return new Route($url, 'detail', [
+                'id' => $matches[1],
+            ]);
         }
 
-        return 'error404';
+        return new Route($url, 'error404');
     }
 }

@@ -30,11 +30,14 @@ class Controller
         return $response;
     }
 
-    public function detail(): ResponseInterface
+    public function detail(int $id): ResponseInterface
     {
         $loader = new ContactLoader();
+        $contact = $loader->loadById($id);
 
-        $contact = $loader->loadById(1);
+        if (!$contact) {
+            return $this->error404();
+        }
 
         $response = new Response();
         $response->setBody($this->renderer->render('detail.phtml', [

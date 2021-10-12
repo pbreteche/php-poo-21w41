@@ -16,10 +16,13 @@ class App
 
     public function handleRequest(RequestInterface $request): ResponseInterface
     {
-        $methodName = $this->urlParser->matchUrl($request->getUri());
+        $route = $this->urlParser->matchUrl($request->getUri());
 
         // mettre ne place un système pour passer un paramètre
         // à faire dans un second temps
-        return call_user_func([new Controller(), $methodName]);
+        return call_user_func_array(
+            [new Controller(), $route->getControllerMethod()],
+            $route->getArgs()
+        );
     }
 }
