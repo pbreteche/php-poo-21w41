@@ -2,23 +2,9 @@
 
 namespace Dawan;
 
-class ContactLoader
+class ContactLoader extends AbstractLoader
 {
     private $allContacts;
-
-    public function load()
-    {
-        return $this->getAllContacts();
-    }
-
-    public function loadById(int $id)
-    {
-        $data = $this->getAllContacts();
-
-        $dataById = array_column($data, null, 'id');
-
-        return $dataById[$id] ?? null;
-    }
 
     private function getAllContacts()
     {
