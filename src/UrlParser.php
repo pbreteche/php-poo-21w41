@@ -15,6 +15,10 @@ class UrlParser
             return new Route($url, 'homepage');
         }
 
+        if ('/new' === $url) {
+            return new Route($url, 'create');
+        }
+
         if (preg_match('/^\/(\d+)$/', $url, $matches)) {
             return new Route($url, 'detail', [
                 'id' => $matches[1],

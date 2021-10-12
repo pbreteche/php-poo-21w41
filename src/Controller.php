@@ -47,6 +47,14 @@ class Controller
         return $response;
     }
 
+    public function create(): ResponseInterface
+    {
+        $response = new Response();
+        $response->setBody($this->renderer->render('create.phtml'));
+
+        return $response;
+    }
+
     public function error404(): ResponseInterface
     {
         $response = new Response();
