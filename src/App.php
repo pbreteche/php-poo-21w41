@@ -18,6 +18,8 @@ class App
     {
         $methodName = $this->urlParser->matchUrl($request->getUri());
 
+        // mettre ne place un système pour passer un paramètre
+        // à faire dans un second temps
         return call_user_func([new Controller(), $methodName]);
     }
 }

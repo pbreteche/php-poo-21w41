@@ -30,6 +30,10 @@ class Controller
         return $response;
     }
 
+    // créer une méthode 'detail' qui produit la page d'un contact
+    // dans un premier, ne faire que pour id = 1
+    // créer également le fichier de template detail.phtml
+
     public function error404(): ResponseInterface
     {
         $response = new Response();

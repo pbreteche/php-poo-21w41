@@ -15,6 +15,9 @@ class UrlParser
             return 'homepage';
         }
 
+        // détecter les urls de type /1, /2, /3, etc
+        // et retourner 'detail'
+
         return 'error404';
     }
 }
