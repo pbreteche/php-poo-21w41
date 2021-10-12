@@ -2,7 +2,7 @@
 
 namespace Dawan\http;
 
-class Request
+class Request implements RequestInterface
 {
     // Variable interne à mon objet
     // Propriété de l'objet accessible par l'ensemble

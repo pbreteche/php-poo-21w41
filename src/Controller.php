@@ -3,6 +3,7 @@
 namespace Dawan;
 
 use Dawan\http\Response;
+use Dawan\http\ResponseInterface;
 
 class Controller
 {
@@ -15,7 +16,7 @@ class Controller
         $this->renderer = new TemplateRenderer();
     }
 
-    public function homepage()
+    public function homepage(): ResponseInterface
     {
         $loader = new ContactLoader();
 
@@ -29,7 +30,7 @@ class Controller
         return $response;
     }
 
-    public function error404()
+    public function error404(): ResponseInterface
     {
         $response = new Response();
         $response->setBody($this->renderer->render('error.phtml'));

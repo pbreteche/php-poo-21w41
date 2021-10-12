@@ -2,8 +2,8 @@
 
 namespace Dawan;
 
-use Dawan\http\Request;
-use Dawan\http\Response;
+use Dawan\http\RequestInterface;
+use Dawan\http\ResponseInterface;
 
 class App
 {
@@ -14,7 +14,7 @@ class App
         $this->urlParser = new UrlParser();
     }
 
-    public function handleRequest(Request $request): Response
+    public function handleRequest(RequestInterface $request): ResponseInterface
     {
         $methodName = $this->urlParser->matchUrl($request->getUri());
 
