@@ -20,6 +20,7 @@ class Request implements RequestInterface
         // car méthode static liée à la même classe
         $instance->uri = $_SERVER['REQUEST_URI'];
         $instance->method = mb_strtolower($_SERVER['REQUEST_METHOD']);
+        $instance->formData = $_POST;
 
         return $instance;
     }
@@ -32,5 +33,10 @@ class Request implements RequestInterface
     public function getMethod(): string
     {
         return $this->method;
+    }
+
+    public function getFormData(): array
+    {
+        return $this->formData;
     }
 }

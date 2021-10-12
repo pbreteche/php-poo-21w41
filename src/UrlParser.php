@@ -2,6 +2,8 @@
 
 namespace Dawan;
 
+use Dawan\http\RequestInterface;
+
 class UrlParser
 {
     public function getLastSegment(string $url): string
@@ -9,14 +11,17 @@ class UrlParser
         return array_pop(explode('/', $url));
     }
 
-    public function matchUrl(string $url): Route
+    public function matchUrl(RequestInterface $request): Route
     {
+        $url = $request->getUri();
         if ('/' === $url) {
             return new Route($url, 'homepage');
         }
 
         if ('/new' === $url) {
-            return new Route($url, 'create');
+            return new Route($url, 'create', [
+                'request' => $request,
+            ]);
         }
 
         if (preg_match('/^\/(\d+)$/', $url, $matches)) {

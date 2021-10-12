@@ -1,2 +1,3 @@
 # External PHP libraries
 /vendor/
+/data/contacts.json

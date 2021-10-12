@@ -4,6 +4,7 @@ namespace Dawan;
 
 use Dawan\http\Response;
 use Dawan\http\ResponseInterface;
+use Dawan\http\RequestInterface;
 
 class Controller
 {
@@ -47,8 +48,20 @@ class Controller
         return $response;
     }
 
-    public function create(): ResponseInterface
+    public function create(RequestInterface $request): ResponseInterface
     {
+        $form = new ContactForm($request);
+
+        if ($form->isSubmited()) {
+            $saver = new ContactSaver();
+            $saver->save($form->getContact());
+
+            $response = new Response();
+            $response->addHeader('Location', '/');
+            $response->setStatus(303);
+            return $response;
+        }
+
         $response = new Response();
         $response->setBody($this->renderer->render('create.phtml'));
 

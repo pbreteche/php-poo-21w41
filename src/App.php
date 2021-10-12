@@ -16,7 +16,7 @@ class App
 
     public function handleRequest(RequestInterface $request): ResponseInterface
     {
-        $route = $this->urlParser->matchUrl($request->getUri());
+        $route = $this->urlParser->matchUrl($request);
 
         // mettre ne place un système pour passer un paramètre
         // à faire dans un second temps
