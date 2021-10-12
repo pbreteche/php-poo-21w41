@@ -9,11 +9,17 @@ class Request
     // des fonctions de l'objet courant
     private string $uri;
 
-    // Méthode magique "constructeur"
-    // est appelée automatiquement lors de l'instanciation
-    public function __construct()
+    // La méthode "static" permet de sortir ponctuellement
+    // du paradigme objet. 
+    // On retrouve un mécanisme de fonction classique.
+    public static function createFromSuperGlobals(): self
     {
-        $this->uri = $_SERVER['REQUEST_URI'];
+        $instance = new self();
+        // accès à la propriété privée uri possible
+        // car méthode static liée à la même classe
+        $instance->uri = $_SERVER['REQUEST_URI'];
+
+        return $instance;
     }
 
     public function getUri(): string

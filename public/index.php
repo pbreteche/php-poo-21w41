@@ -13,6 +13,6 @@ use Dawan\http\Request;
 require __DIR__.'/../vendor/autoload.php';
 
 $app = new App();
-$request = new Request();
+$request = Request::createFromSuperGlobals();
 $response = $app->handleRequest($request);
 $response->send();
