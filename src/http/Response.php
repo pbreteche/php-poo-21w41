@@ -2,7 +2,7 @@
 
 namespace Dawan\http;
 
-class Response
+class Response implements ResponseInterface
 {
     private int $status = 200;
     private string $body;
