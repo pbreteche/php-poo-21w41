@@ -1,5 +1,6 @@
 [
     {"id": 1, "name": "Pierre"},
     {"id": 2, "name": "Christophe"},
-    {"id": 3, "name": "Christopher"}
+    {"id": 3, "name": "Christopher"},
+    {"id": 4, "name": "<script>console.log('XSS')</script>"}
 ]
