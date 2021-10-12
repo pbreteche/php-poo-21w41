@@ -10,14 +10,7 @@ use Dawan\http\Request;
 // Ce fichier est le "Front Controller"
 // Ce sera notre seul fichier PHP sans déclaration de classe
 
-spl_autoload_register(function(string $classname) {
-    $parts = explode('\\', $classname);
-    $vendor = array_shift($parts);
-    if ('Dawan' === $vendor) {
-        // Mapping entre l'espace "Dawan" et le répertoire "src"
-        require __DIR__.'/../src/'.implode(DIRECTORY_SEPARATOR, $parts).'.php';
-    }
-});
+require __DIR__.'/../vendor/autoload.php';
 
 $app = new App();
 $request = new Request();
